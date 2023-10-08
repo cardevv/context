@@ -1,17 +1,28 @@
-import { createBrowserRouter } from "react-router-dom"
+
+import { createBrowserRouter } from "react-router-dom";
 import SelecaoCliente from "../paginas/cadastro/SelecaoCliente";
+import LayoutBaseCadastro from "../paginas/cadastro/LayoutBaseCadastro";
+import LayoutBase from "../paginas/LayoutBase";
+//import PaginaInicial from "../paginas/PaginaInicial";
 
 
 export const router = createBrowserRouter([
     {
-        path: "/",
-       
+        path: "/", 
+        element: <LayoutBase/> ,    
         children: [
         {
 
             path:'cadastro',
-            element: <SelecaoCliente></SelecaoCliente>,
-            children: [
+            element: <LayoutBaseCadastro />,
+            
+            children: [ 
+
+                {
+                    path: '' ,
+                    element: <SelecaoCliente/>
+
+                },
 
 
                 {

@@ -1,7 +1,10 @@
 import { Col, Row } from 'react-grid-system'
 import { Tipografia } from '../../componentes/Tipografia/Tipografia'
+
+
 import cliente from './assets/cliente.png'
 import freelancer from './assets/freela.png'
+import { Link } from '../../componentes/Link/Link'
 
 
 const SelecaoCliente = () => {
@@ -23,6 +26,15 @@ const SelecaoCliente = () => {
             <img src={freelancer} alt="" />
            </Col>
         </Row>
+
+        <div style={{ textAlign: 'center' }}>
+            <Tipografia variante="body2" componente="body2">
+                Já tem conta?
+            </Tipografia>
+            <p>
+                <Link variante="secundaria">Faça login!</Link>
+            </p>
+        </div>
   
 
 
