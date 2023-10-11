@@ -1,8 +1,9 @@
 import { Col, Row } from "react-grid-system";
-import GrupoRadio from "../componentes/Radio/GrupoRadio";
-import { Tipografia } from "../componentes/Tipografia/Tipografia"
-import { Botao } from "../componentes/Botao/Botao";
+import GrupoRadio from "../../componentes/Radio/GrupoRadio";
+import { Tipografia } from "../../componentes/Tipografia/Tipografia"
+import { Botao } from "../../componentes/Botao/Botao";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -47,26 +48,31 @@ const Interesses = () => {
 
                 Crie seu cadastro
             </Tipografia>
+            <Tipografia variante="h3" componente="h2">
+                Qual a área de interesse?
+            </Tipografia>
             <GrupoRadio opcoes={opcoes} valor={opcao} onChange={setOpcao}/>
 
             <Row>
               <Col lg={6} md={6} sm={6}>
-                <Botao variante="secundaria">
+               <Link to="/cadastro">
+               <Botao variante="secundaria">
                   Anterior
                 </Botao>
+               </Link>
               </Col>
               <Col lg={6} md={6} sm={6}>
                 <div style={{ textAlign: 'right' }}>
+                  <Link to="/cadastro/dados-pessoais">
                   <Botao>
                     Próxima
                   </Botao>
+                  </Link>
                 </div>
               </Col>
             </Row>
 
-            <Tipografia variante="h3" componente="h2">
-                Qual a área de interesse?
-            </Tipografia>
+            
 
 
             
