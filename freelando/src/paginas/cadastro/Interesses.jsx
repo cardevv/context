@@ -2,8 +2,11 @@ import { Col, Row } from "react-grid-system";
 import GrupoRadio from "../../componentes/Radio/GrupoRadio";
 import { Tipografia } from "../../componentes/Tipografia/Tipografia"
 import { Botao } from "../../componentes/Botao/Botao";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+//import { useState } from "react";
+import { Link , useNavigate} from "react-router-dom";
+import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario";
+
+import { useEffect } from "react"
 
 
 
@@ -36,8 +39,24 @@ const opcoes = [
 
 const Interesses = () => {
 
+  
 
-    const [opcao,setOpcao] = useState('')
+    const { 
+        usuario, 
+        setInteresse, 
+        possoSelecionarInteresse 
+    } = useCadastroUsuarioContext()
+
+    const navegar = useNavigate()
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro')
+        }
+    }, [navegar, possoSelecionarInteresse])
+
+
+    //const [opcao,setOpcao] = useState('')
 
     return (
 
@@ -51,7 +70,11 @@ const Interesses = () => {
             <Tipografia variante="h3" componente="h2">
                 Qual a área de interesse?
             </Tipografia>
-            <GrupoRadio opcoes={opcoes} valor={opcao} onChange={setOpcao}/>
+            <GrupoRadio 
+            opcoes={opcoes} 
+            valor={usuario.interesse} 
+            onChange={setInteresse}
+            />
 
             <Row>
               <Col lg={6} md={6} sm={6}>
